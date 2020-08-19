@@ -18,7 +18,12 @@ class CourseTable extends Migration
             $table->string('course_title');
             $table->string('course_subtitle');
             $table->string('course_details');
+            $table->string('course_fee');
+            $table->string('course_totalenroll');
+            $table->string('course_totalclass');
+            $table->string('course_link');
             $table->string('course_img');
+
         });
     }
 

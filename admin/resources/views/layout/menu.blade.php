@@ -19,8 +19,16 @@
                     <ul id="sidebarnav">
                         <li class="nav-devider mt-0" style="margin-bottom: 5px"></li>
                         <li> <a href="{{'/'}}" ><span> <i class="fas fa-home"></i> </span><span class="hide-menu">Home</span></a></li>
-                        <li> <a href="{{'/visitor'}}" ><span> <i class="fas fa-users"></i> </span><span class="hide-menu">Visitor</span></a></li>
-                    	<li> <a href="{{'/services'}}" ><span> <i class="fas fa-globe"></i> </span><span class="hide-menu">Services</span></a></li>
+                        <li> <a href="{{'/Visitor'}}" ><span> <i class="fas fa-users"></i> </span><span class="hide-menu">Visitor</span></a></li>
+                    	<li> <a href="{{'/Services'}}" ><span> <i class="fas fa-globe"></i> </span><span class="hide-menu">Services</span></a></li>
+                        <li> <a href="{{'/Courses'}}" ><span> <i class="fa fa-graduation-cap" aria-hidden="true"></i> </span><span class="hide-menu">Courses</span></a></li>
+                        <li> <a href="{{'/Projects'}}" ><span> <i class="fa fa-code" aria-hidden="true"></i> </span><span class="hide-menu">Projects</span></a></li>
+                        <li> <a href="{{'/Contacts'}}" ><span> <i class="fa fa-envelope" aria-hidden="true"></i> </span><span class="hide-menu">Contact Mail</span></a></li>
+
+                        <li> <a href="{{'/Reviews'}}" ><span> <i class="fa fa-comments" aria-hidden="true"></i> </span><span class="hide-menu">Reviews</span></a></li>
+
+                        <li> <a href="{{'/'}}" ><span> <i class="fa fa-rss-square" aria-hidden="true"></i> </span><span class="hide-menu">Blog</span></a></li>
+                        <li> <a href="{{'/'}}" ><span> <i class="fa fa-cogs" aria-hidden="true"></i> </span><span class="hide-menu">Settings</span></a></li>
 					</ul>
                 </nav>
             </div>

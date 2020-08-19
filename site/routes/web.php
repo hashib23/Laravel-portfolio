@@ -13,4 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomeController@homeIndex');
+Route::get('/', 'HomeController@HomeIndex');
+Route::post('/ContactSend', 'HomeController@ContactSend');
+
+Route::get('/Courses', 'CourseController@CourseIndex');
+Route::get('/Projects', 'ProjectController@ProjectIndex');
+
+Route::get('/Contact', 'ContactController@ContactPage');
+Route::get('/Privecy', 'PrivecyController@PrivecyPage');
+Route::get('/Terms', 'TermsController@TermsPage');
+
+

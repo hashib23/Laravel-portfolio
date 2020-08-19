@@ -34,5 +34,17 @@
 </div>
 </div>
 
+@endsection
 
+@section('script')
+<script type="text/javascript">
+  
+  //visitor table
+$(document).ready(function () {
+  $('#VisitorDt').DataTable({'order':false});
+  $('.dataTables_length').addClass('bs-select');
+});
+
+
+</script>
 @endsection

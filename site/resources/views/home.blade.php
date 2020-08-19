@@ -6,5 +6,7 @@
     @include('component.HomeService')
     @include('component.HomeCourse')
     @include('component.HomeProject')
+    @include('component.HomeContact')
+
 
 @endsection

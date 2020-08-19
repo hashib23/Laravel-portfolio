@@ -10,7 +10,7 @@ class VisitorController extends Controller
     
 	function VisitorIndex(){
 
-		$VisitorsData=VisitorModel::all();
+		$VisitorsData=VisitorModel::orderBy('id','desc')->get();
 		
 		return view('visitor',['VisitorsData'=> $VisitorsData]);
 	}

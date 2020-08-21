@@ -1,7 +1,7 @@
 @extends('layout/app')
 @section('title','Courses')
 @section('content')
-	
+
 
 <div id="mainDivCourse" class="container">
 	<!-- Add new Button -->
@@ -23,8 +23,8 @@
     </tr>
   </thead>
   <tbody id="course_table">
-  
-	
+
+
   </tbody>
 </table>
 
@@ -72,7 +72,7 @@
           		<input id="courseSubtitleAddID" type="text" id="" class="form-control mb-4" placeholder="Course Subtitle">
           		<input id="courseDetailsAddID" type="text" id="" class="form-control mb-4" placeholder="Course Description">
         		<input id="courseFeeAddID" type="text" id="" class="form-control mb-4" placeholder="Course Fee">
-          		
+
         	</div>
         	<div class="col-md-6">
         		<input id="courseTotalenrollAddID" type="text" id="" class="form-control mb-4" placeholder="Course Total Enroll Link">
@@ -80,7 +80,7 @@
           		<input id="courseLinkAddID" type="text" id="" class="form-control mb-4" placeholder="Course Site Link">
           		<input id="courseImgAddID" type="text" id="" class="form-control mb-4" placeholder="Course Image Link">
         	</div>
-        		
+
         	</div>
         </div>
       </div>
@@ -131,14 +131,14 @@
           		<input id="courseSubtitleID" type="text" id="" class="form-control mb-4" placeholder="Course Subtitle">
           		<input id="courseDetailsID" type="text" id="" class="form-control mb-4" placeholder="Course Description">
         		<input id="courseFeeID" type="text" id="" class="form-control mb-4" placeholder="Course Fee">
-          		
+
         	</div>
         	<div class="col-md-6">
         		<input id="courseTotalenrollID" type="text" id="" class="form-control mb-4" placeholder="Course Total Enroll Link">
           		<input id="courseTotalclassID" type="text" id="" class="form-control mb-4" placeholder="Course Total Class">
           		<input id="courseLinkID" type="text" id="" class="form-control mb-4" placeholder="Course Site Link">
           		<input id="courseImgID" type="text" id="" class="form-control mb-4" placeholder="Course Image Link">
-        	</div>        		
+        	</div>
         	</div>
 
         	<img id="courseEditLoader" class="loading-icon m-5" src="{{asset('images/loader.gif')}}">
@@ -205,7 +205,7 @@ function getCoursesData() {
           CourseUpdateDetails(id);
           $('#courseEditModal').modal('show');
         })
-       
+
         $('#CourseDataTable').DataTable({'order':false});
         $('.dataTables_length').addClass('bs-select');
 
@@ -227,11 +227,11 @@ function getCoursesData() {
 
 
 //course add  Modal
-$('#courseAddBtn').click(function () {          
+$('#courseAddBtn').click(function () {
 $('#AddNewCourseModal').modal('show');
 })
 
-// Courses Add confirm btn 
+// Courses Add confirm btn
 $('#courseAddConfirmBtn').click(function() {
     var title = $('#courseTitleAddID').val();
     var subtitle = $('#courseSubtitleAddID').val();
@@ -246,7 +246,7 @@ $('#courseAddConfirmBtn').click(function() {
 
 // Course Add Method
 function CourseAdd(courseTitle,courseSubtitle,courseDetails,courseFee,courseTotalenroll,courseTotalclass,courseLink,courseImg) {
-  
+
     if(courseTitle.length==0){
      toastr.error('Course Title is Empty !');
     }
@@ -295,12 +295,12 @@ function CourseAdd(courseTitle,courseSubtitle,courseDetails,courseFee,courseTota
                 $('#AddNewCourseModal').modal('hide');
                 toastr.error('Course Add Fail');
                 getCoursesData();
-            }  
-         } 
+            }
+         }
          else{
              $('#AddNewCourseModal').modal('hide');
              toastr.error('Something Went Wrong !');
-         }   
+         }
     })
     .catch(function(error) {
              $('#AddNewCourseModal').modal('hide');
@@ -345,7 +345,7 @@ function CourseDelete(deleteID) {
 }
 
 
-// Course Update Details 
+// Course Update Details
 function CourseUpdateDetails(detailsID) {
   axios.post('/CourseDetails', {
       id: detailsID
@@ -380,16 +380,16 @@ function CourseUpdateDetails(detailsID) {
 
 // Course Edit Modal Save Btn
 $('#courseEditConfirmBtn').click(function () {
-  var id = $('#courseEditId').html();
-  var title = $('#courseTitleID').val();
-  var subtitle = $('#courseSubtitleID').val();
-  var details = $('#courseDetailsID').val();
-  var fee = $('#courseFeeID').val();
-  var totalenroll = $('#courseTotalenrollID').val();
-  var totalclass = $('#courseTotalclassID').val();
-  var link = $('#courseLinkID').val();
-  var img = $('#courseImgID').val();
-  CourseUpdates(id, title, subtitle, details, fee, totalenroll, totalclass, link, img);
+  var courseID = $('#courseEditID').html();
+  var courseTitle = $('#courseTitleID').val();
+  var courseSubtitle = $('#courseSubtitleID').val();
+  var courseDetails = $('#courseDetailsID').val();
+  var courseFee = $('#courseFeeID').val();
+  var courseTotalenroll = $('#courseTotalenrollID').val();
+  var courseTotalclass = $('#courseTotalclassID').val();
+  var courseLink = $('#courseLinkID').val();
+  var courseImg = $('#courseImgID').val();
+  CourseUpdates(courseID, courseTitle, courseSubtitle, courseDetails, courseFee, courseTotalenroll, courseTotalclass, courseLink, courseImg);
 })
 
 
@@ -414,7 +414,7 @@ function CourseUpdates(courseID, courseTitle, courseSubtitle, courseDetails, cou
   }
    else {
   $('#courseEditConfirmBtn').html("<div class='spinner-border spinner-border-sm' role='status'></div>") //Animation....
-  
+
     axios.post('/CourseUpdate', {
         id: courseID,
         title: courseTitle,
@@ -441,7 +441,9 @@ function CourseUpdates(courseID, courseTitle, courseSubtitle, courseDetails, cou
         }
       })
       .catch(function (error) {
-
+          toastr.warning('Something went worng!');
+          $('#courseEditModal').modal('hide');
+          getCoursesData();
       });
 
   }
@@ -450,6 +452,6 @@ function CourseUpdates(courseID, courseTitle, courseSubtitle, courseDetails, cou
 
 
 
-    
+
 	</script>
 @endsection

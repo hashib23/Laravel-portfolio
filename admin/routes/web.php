@@ -4,50 +4,62 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', 'HomeController@homeIndex');
+Route::get('/', 'HomeController@homeIndex')->middleware('loginCheck');
 
-Route::get('/Visitor', 'VisitorController@VisitorIndex');
+Route::get('/Visitor', 'VisitorController@VisitorIndex')->middleware('loginCheck');
 
 //adminpanel service management
-Route::get('/Services', 'ServiceController@ServiceIndex');
-Route::get('/getServicesData', 'ServiceController@getServicesData');
-Route::post('/ServiceDetails', 'ServiceController@getServiceDetails');
-Route::post('/ServiceDelete', 'ServiceController@ServiceDelete');
-Route::post('/ServiceUpdate', 'ServiceController@ServiceUpdate');
-Route::post('/ServiceAdd', 'ServiceController@ServiceAdd');
+Route::get('/Services', 'ServiceController@ServiceIndex')->middleware('loginCheck');
+Route::get('/getServicesData', 'ServiceController@getServicesData')->middleware('loginCheck');
+Route::post('/ServiceDetails', 'ServiceController@getServiceDetails')->middleware('loginCheck');
+Route::post('/ServiceDelete', 'ServiceController@ServiceDelete')->middleware('loginCheck');
+Route::post('/ServiceUpdate', 'ServiceController@ServiceUpdate')->middleware('loginCheck');
+Route::post('/ServiceAdd', 'ServiceController@ServiceAdd')->middleware('loginCheck');
 
 
 
-//admin panel Course management 
-Route::get('/Courses', 'CoursesController@CoursesIndex');
-Route::get('/getCoursesData', 'CoursesController@getCoursesData');
-Route::post('/CourseDetails', 'CoursesController@getCourseDetails');
-Route::post('/CourseDelete', 'CoursesController@CourseDelete');
+//admin panel Course management
+Route::get('/Courses', 'CoursesController@CoursesIndex')->middleware('loginCheck');
+Route::get('/getCoursesData', 'CoursesController@getCoursesData')->middleware('loginCheck');
+Route::post('/CourseDetails', 'CoursesController@getCourseDetails')->middleware('loginCheck');
+Route::post('/CourseDelete', 'CoursesController@CourseDelete')->middleware('loginCheck');
 Route::post('/CourseUpdate', 'CoursesController@CourseUpdate');
-Route::post('/CourseAdd', 'CoursesController@CourseAdd');
+Route::post('/CourseAdd', 'CoursesController@CourseAdd')->middleware('loginCheck');
 
-//Admin panel Project management 
-Route::get('/Projects', 'ProjectController@ProjectIndex');
-Route::get('/getProjectsData', 'ProjectController@getProjectsData');
-Route::post('/ProjectDetails', 'ProjectController@getProjectDetails');
-Route::post('/ProjectDelete', 'ProjectController@ProjectDelete');
-Route::post('/ProjectUpdate', 'ProjectController@ProjectUpdate');
-Route::post('/ProjectAdd', 'ProjectController@ProjectAdd');
-
-
-//Admin panel Contact management 
-Route::get('/Contacts', 'ContactController@ContactIndex');
-Route::get('/getContactsData', 'ContactController@getContactsData');
-Route::post('/ContactDetails', 'ContactController@getContactDetails');
-Route::post('/ContactDelete', 'ContactController@ContactDelete');
-Route::post('/ContactUpdate', 'ContactController@ContactUpdate');
-Route::post('/ContactAdd', 'ContactController@PCotactAdd');
+//Admin panel Project management
+Route::get('/Projects', 'ProjectController@ProjectIndex')->middleware('loginCheck');
+Route::get('/getProjectsData', 'ProjectController@getProjectsData')->middleware('loginCheck');
+Route::post('/ProjectDetails', 'ProjectController@getProjectDetails')->middleware('loginCheck');
+Route::post('/ProjectDelete', 'ProjectController@ProjectDelete')->middleware('loginCheck');
+Route::post('/ProjectUpdate', 'ProjectController@ProjectUpdate')->middleware('loginCheck');
+Route::post('/ProjectAdd', 'ProjectController@ProjectAdd')->middleware('loginCheck');
 
 
-//Admin panel Reciew management 
-Route::get('/Reviews', 'ReviewController@ReviewIndex');
-Route::get('/getReviewsData', 'ReviewController@getReviewsData');
-Route::post('/ContactDetails', 'ReviewController@getReciewDetails');
-Route::post('/ContactDelete', 'ReviewController@ReciewDelete');
-Route::post('/ContactUpdate', 'ReviewController@ReciewUpdate');
-Route::post('/ContactAdd', 'ReviewController@ReciewAdd');
+//Admin panel Contact management
+Route::get('/Contacts', 'ContactController@ContactIndex')->middleware('loginCheck');
+Route::get('/getContactsData', 'ContactController@getContactsData')->middleware('loginCheck');
+Route::post('/ContactDetails', 'ContactController@getContactDetails')->middleware('loginCheck');
+Route::post('/ContactDelete', 'ContactController@ContactDelete')->middleware('loginCheck');
+Route::post('/ContactUpdate', 'ContactController@ContactUpdate')->middleware('loginCheck');
+Route::post('/ContactAdd', 'ContactController@PCotactAdd')->middleware('loginCheck');
+
+
+//Admin panel Review management
+Route::get('/Reviews', 'ReviewController@ReviewIndex')->middleware('loginCheck');
+Route::get('/getReviewsData', 'ReviewController@getReviewsData')->middleware('loginCheck');
+Route::post('/ReviewDetails', 'ReviewController@getReciewDetails')->middleware('loginCheck');
+Route::post('/ReviewDelete', 'ReviewController@ReciewDelete')->middleware('loginCheck');
+Route::post('/ReviewUpdate', 'ReviewController@ReciewUpdate')->middleware('loginCheck');
+Route::post('/ReviewAdd', 'ReviewController@ReciewAdd')->middleware('loginCheck');
+
+//Admin panel Photo gallery management
+Route::get('/Photo', 'PhotoController@PhotoIndex')->middleware('loginCheck');
+Route::post('/PhotoUpload', 'PhotoController@PhotoUpload')->middleware('loginCheck');
+Route::get('/PhotoJSON', 'PhotoController@PhotoJSON')->middleware('loginCheck');
+
+
+//AdminPanel Login Management
+Route::get('/Login', 'LoginController@Login');
+Route::post('/onLogin', 'LoginController@onLogin');
+Route::get('/Logout', 'LoginController@onLogout');
+

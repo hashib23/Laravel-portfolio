@@ -4,11 +4,11 @@
                 <div class="navbar-collapse">
                     <ul class="navbar-nav mr-auto mt-md-0">
                         <li class="nav-item "> <a class="nav-link nav-toggler  hidden-md-up  waves-effect waves-dark" href="javascript:void(0)"><i class="fas  fa-bars"></i></a></li>
-                        <li class="nav-item m-l-10"> <a class="nav-link sidebartoggler hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="fas fa-bars"></i></a> </li> 
+                        <li class="nav-item m-l-10"> <a class="nav-link sidebartoggler hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="fas fa-bars"></i></a> </li>
                      <li class="nav-item mt-3">ADMIN</li>
 					</ul>
                     <ul class="navbar-nav my-lg-0">
-                        <li class="nav-item"><a href="" class="btn btn-sm btn-danger">Logout</a></li>
+                        <li class="nav-item"><a href="{{'/Logout'}}" class="btn btn-sm btn-danger">Logout</a></li>
                     </ul>
                 </div>
             </nav>
@@ -26,9 +26,10 @@
                         <li> <a href="{{'/Contacts'}}" ><span> <i class="fa fa-envelope" aria-hidden="true"></i> </span><span class="hide-menu">Contact Mail</span></a></li>
 
                         <li> <a href="{{'/Reviews'}}" ><span> <i class="fa fa-comments" aria-hidden="true"></i> </span><span class="hide-menu">Reviews</span></a></li>
-
+                        <li> <a href="{{'/Photo'}}" ><span> <i class="fa fa-file-image" aria-hidden="true"></i> </span><span class="hide-menu">Photo Gallery</span></a></li>
                         <li> <a href="{{'/'}}" ><span> <i class="fa fa-rss-square" aria-hidden="true"></i> </span><span class="hide-menu">Blog</span></a></li>
                         <li> <a href="{{'/'}}" ><span> <i class="fa fa-cogs" aria-hidden="true"></i> </span><span class="hide-menu">Settings</span></a></li>
+
 					</ul>
                 </nav>
             </div>

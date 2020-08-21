@@ -38,10 +38,10 @@ class ProjectController extends Controller
     function ProjectUpdate(Request $req)
     {
         $id = $req->input('id');
-        $name = $req->input('name');
-        $desc = $req->input('desc');
-        $link = $req->input('link');
-        $img = $req->input('img');
+        $name = $req->input('project_name');
+        $desc = $req->input('project_desc');
+        $link = $req->input('project_link');
+        $img = $req->input('project_img');
 
         $result = ProjectModel::where('id', '=', $id)->update([
         'project_name' => $name,
@@ -61,7 +61,6 @@ class ProjectController extends Controller
     }
 
 
-    
     function ProjectAdd(Request $req){
         $name = $req->input('project_name');
         $desc = $req->input('project_desc');
@@ -70,7 +69,7 @@ class ProjectController extends Controller
         $result=ProjectModel::insert([
             'project_name' =>$name,
             'project_desc' =>$desc,
-            'project_link' =>$desc,
+            'project_link' =>$link,
             'project_img' =>$img
             ]);
 
@@ -81,5 +80,8 @@ class ProjectController extends Controller
         {
             return 0;
         }
-    }   
+    }
+
+
+
 }

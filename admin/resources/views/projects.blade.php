@@ -59,6 +59,7 @@
     </div>
   </div>
 </div>
+
 <!-- project Edit Modal Start-->
 <div class="modal fade" id="projectEditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
@@ -75,7 +76,7 @@
         <div id="projectEditForm" class="d-none w-100">
           <input id="projectNameID" type="text" id="" class="form-control mb-4" placeholder="Project Name">
           <input id="projectDescID" type="text" id="" class="form-control mb-4" placeholder="Project Description">
-          <input id="projectDescID" type="text" id="" class="form-control mb-4" placeholder="Project Link">
+          <input id="projectLinkID" type="text" id="" class="form-control mb-4" placeholder="Project Link">
           <input id="projectImgID" type="text" id="" class="form-control mb-4" placeholder="Project Image Link">
         </div>
         <img id="projectEditLoader" class="loading-icon m-5" src="{{asset('images/loader.gif')}}">
@@ -83,7 +84,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Cancel</button>
-        <button type="button" id="projectEditConfirmBtn" type="button" class="btn  btn-sm  btn-danger">Save</button>
+        <button type="button" id="projectUpdateConfirmBtn" type="button" class="btn  btn-sm  btn-danger">Save</button>
       </div>
     </div>
   </div>
@@ -106,7 +107,7 @@
         <div id="projectAddForm" class="w-100">
             <input id="projectNameID" type="text" id="" class="form-control mb-4" placeholder="Project Name">
             <input id="projectDescID" type="text" id="" class="form-control mb-4" placeholder="Project Description">
-            <input id="projectDescID" type="text" id="" class="form-control mb-4" placeholder="Project Link">
+            <input id="projectLinkID" type="text" id="" class="form-control mb-4" placeholder="Project Link">
             <input id="projectImgID" type="text" id="" class="form-control mb-4" placeholder="Project Image Link">
         </div>
       </div>
@@ -166,7 +167,7 @@ function getProjectsData() {
          $('#projectEditModal').modal('show');
 
         })
-        //this is for pagination 
+        //this is for pagination
         $('#ProjectDataTable').DataTable({'order':false});
         $('.dataTables_length').addClass('bs-select');
         //this is for pagination end
@@ -210,17 +211,17 @@ function ProjectDelete(deleteID) {
            $('#projectDeleteModal').modal('hide');
            getProjectsData();
          }
-   
+
        })
-   
+
        .catch(function (error) {
-   
-   
+
+
        });
-   
+
    }
 
-// Project Update Details 
+// Project Update Details
 function ProjectUpdateDetails(detailsID) {
     axios.post('/ProjectDetails', {
         id: detailsID
@@ -229,13 +230,13 @@ function ProjectUpdateDetails(detailsID) {
         if (response.status == 200) {
           $('#projectEditForm').removeClass('d-none');
           $('#projectEditLoader').addClass('d-none');
-  
+
           var jsonData = response.data;
           $('#projectNameID').val(jsonData[0].project_name);
           $('#projectDescID').val(jsonData[0].project_desc);
           $('#projectLinkID').val(jsonData[0].project_link);
           $('#projectImgID').val(jsonData[0].project_img);
-          
+
         } else {
           $('#projectEditLoader').addClass('d-none');
           $('#projectEditWrong').removeClass('d-none');
@@ -249,7 +250,7 @@ function ProjectUpdateDetails(detailsID) {
 
 
 //Project table add  Modal
-$('#projectAddBtn').click(function () {          
+$('#projectAddBtn').click(function () {
     $('#projectAddModal').modal('show');
     })
 
@@ -258,7 +259,7 @@ $('#projectAddBtn').click(function () {
 $('#projectAddConfirmBtn').click(function() {
     var project_name = $('#projectNameID').val();
     var project_desc = $('#projectDescID').val();
-    var project_link = $('#projectDescID').val();
+    var project_link = $('#projectLinkID').val();
     var project_img = $('#projectImgID').val();
     ProjectAdd(project_name,project_desc,project_link,project_img);
 })
@@ -266,7 +267,7 @@ $('#projectAddConfirmBtn').click(function() {
 
 // Project Add Method
 function ProjectAdd(projectName,projectDesc,projectLink,projectImg) {
-  
+
     $('#projectAddConfirmBtn').html("<div class='spinner-border spinner-border-sm' role='status'></div>") //Animation....
     axios.post('/ProjectAdd', {
         project_name: projectName,
@@ -285,12 +286,12 @@ function ProjectAdd(projectName,projectDesc,projectLink,projectImg) {
                 $('#projectAddModal').modal('hide');
                 toastr.error('Add Fail');
                 getProjectsData();
-            }  
-         } 
+            }
+         }
          else{
              $('#projectAddModal').modal('hide');
              toastr.error('Something Went Wrong !');
-         }   
+         }
     })
     .catch(function(error) {
              $('#projectAddModal').modal('hide');
@@ -298,6 +299,66 @@ function ProjectAdd(projectName,projectDesc,projectLink,projectImg) {
    });
 }
 
-  
+
+  $('#projectUpdateConfirmBtn').click(function(){
+      var ProjectID=$('#projectEditId').html();
+      var  ProjectName=$('#projectNameID').val();
+      var  ProjectDesc=$('#projectDescID').val();
+      var ProjectLink=$('#projectLinkID').val();
+      var  ProjectImg=$('#projectImgID').val();
+      ProjectUpdate(ProjectID,ProjectName,ProjectDesc,ProjectLink,ProjectImg);
+  })
+  function ProjectUpdate(ProjectID,ProjectName,ProjectDesc,ProjectLink,ProjectImg) {
+
+      if(ProjectName.length==0){
+          toastr.error('Project Name is Empty !');
+      }
+      else if(ProjectDesc.length==0){
+          toastr.error('Project Description is Empty !');
+      }
+      else if(ProjectLink.length==0){
+          toastr.error('Project Link is Empty !');
+      }
+      else if(ProjectImg.length==0){
+          toastr.error('Project Image is Empty !');
+      }
+      else{
+          $('#projectUpdateConfirmBtn').html("<div class='spinner-border spinner-border-sm' role='status'></div>") //Animation....
+          axios.post('/ProjectUpdate', {
+              id: ProjectID,
+              project_name:ProjectName,
+              project_desc:ProjectDesc,
+              project_link:ProjectLink,
+              project_img:ProjectImg,
+          })
+              .then(function(response) {
+                  $('#projectUpdateConfirmBtn').html("Save");
+                  if(response.status==200){
+                      if (response.data == 1) {
+                          $('#projectEditModal').modal('hide');
+                          toastr.success('Update Success');
+                          getProjectsData();
+                      } else {
+                          $('#projectEditModal').modal('hide');
+                          toastr.error('Update Fail');
+                          getProjectsData();
+                      }
+                  }
+                  else{
+                      $('#projectEditModal').modal('hide');
+                      toastr.error('Something Went Wrong !');
+                  }
+              })
+              .catch(function(error) {
+                  $('#projectEditModal').modal('hide');
+                  toastr.error('Something Went Wrong !');
+              });
+      }
+  }
+
+
+
+
+
 </script>
 @endsection

@@ -7,7 +7,7 @@ use App\CourseModel;
 
 class CoursesController extends Controller
 {
-    
+
     function CoursesIndex(){
         return view('courses');
     }
@@ -49,7 +49,7 @@ class CoursesController extends Controller
 
         $result=CourseModel::insert([
             'course_title' => $course_title,
-            'course_subtitle' => $course_subtitle, 
+            'course_subtitle' => $course_subtitle,
             'course_details' => $course_details,
             'course_fee' => $course_fee,
             'course_totalenroll' => $course_totalenroll,
@@ -78,9 +78,9 @@ class CoursesController extends Controller
         $course_link = $req->input('link');
         $course_img = $req->input('img');
 
-        $result = CourseModel::where('id','=', $id)->update([
+        $result = CourseModel::where('id','=',$id)->update([
                 'course_title' => $course_title,
-                'course_subtitle' => $course_subtitle, 
+                'course_subtitle' => $course_subtitle,
                 'course_details' => $course_details,
                 'course_fee' => $course_fee,
                 'course_totalenroll' => $course_totalenroll,
@@ -98,7 +98,7 @@ class CoursesController extends Controller
             return 0;
         }
     }
-    
+
 
 }
 

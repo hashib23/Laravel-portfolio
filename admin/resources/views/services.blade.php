@@ -106,7 +106,7 @@
           <input id="serviceDescAddID" type="text" id="" class="form-control mb-4" placeholder="Service Description">
           <input id="serviceImgAddID" type="text" id="" class="form-control mb-4" placeholder="Service Image Link">
         </div>
-        
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Cancel</button>
@@ -122,8 +122,6 @@
 <script type="text/javascript">
   getServicesData();
 
-
-  
 //service show
 function getServicesData() {
 
@@ -164,9 +162,8 @@ function getServicesData() {
           $('#serviceEditId').html(id);
           ServiceUpdateDetails(id);
          $('#editModal').modal('show');
-
         })
-        //this is for pagination 
+        //this is for pagination
         $('#ServiceDataTable').DataTable({'order':false});
         $('.dataTables_length').addClass('bs-select');
         //this is for pagination end
@@ -221,7 +218,7 @@ function ServiceDelete(deleteID) {
 
 }
 
-// Each Service Update Details 
+// Each Service Update Details
 function ServiceUpdateDetails(detailsID) {
   axios.post('/ServiceDetails', {
       id: detailsID
@@ -235,7 +232,7 @@ function ServiceUpdateDetails(detailsID) {
         $('#serviceNameID').val(jsonData[0].service_name);
         $('#serviceDescID').val(jsonData[0].service_desc);
         $('#serviceImgID').val(jsonData[0].service_img);
-        
+
       } else {
         $('#serviceEditLoader').addClass('d-none');
         $('#serviceEditWrong').removeClass('d-none');
@@ -295,7 +292,7 @@ function ServiceUpdates(serviceID, serviceName, serviceDesc, serviceImg) {
 }
 
 //Service table add  Modal
-$('#serviceAddBtn').click(function () {          
+$('#serviceAddBtn').click(function () {
 $('#AddModal').modal('show');
 })
 
@@ -310,7 +307,7 @@ $('#serviceAddConfirmBtn').click(function() {
 
 // Service Add Method
 function ServiceAdd(serviceName,serviceDesc,serviceImg) {
-  
+
     if(serviceName.length==0){
      toastr.error('Service Name is Empty !');
     }
@@ -338,12 +335,12 @@ function ServiceAdd(serviceName,serviceDesc,serviceImg) {
                 $('#AddModal').modal('hide');
                 toastr.error('Add Fail');
                 getServicesData();
-            }  
-         } 
+            }
+         }
          else{
              $('#AddModal').modal('hide');
              toastr.error('Something Went Wrong !');
-         }   
+         }
     })
     .catch(function(error) {
              $('#AddModal').modal('hide');

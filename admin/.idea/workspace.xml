@@ -19,29 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7655d4e-d3e7-4a95-a90a-9e0df7480a18" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/layout/app2.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/login.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/loginpage.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/photo.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CoursesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CoursesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProjectController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProjectController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/courses.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/courses.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layout/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layout/menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/menu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/projects.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/projects.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/services.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/services.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontEnd/AdminFront/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontEnd/AdminFront/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../site/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../site/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="f7655d4e-d3e7-4a95-a90a-9e0df7480a18" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -195,6 +173,7 @@
       <workItem from="1597937093434" duration="11844000" />
       <workItem from="1597981473998" duration="12257000" />
       <workItem from="1598020797567" duration="603000" />
+      <workItem from="1598058195105" duration="208000" />
     </task>
     <servers />
   </component>
